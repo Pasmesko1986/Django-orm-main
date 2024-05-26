@@ -49,7 +49,7 @@ def comic_list_order_api_view(request):
         # Seguir los pasos detallados en
         # el archivo de enunciado de tarea
         print("Endpoint: comic_list_order_api_view")
-        consulta = list(Comic.objects.order_by('marvel_id').values('marvel_id','title','stock_qty','price'))
+        consulta = list(Comic.objects.order_by('marvel_id').values('id','marvel_id','title','stock_qty','price'))
         return JsonResponse(consulta, safe=False)
     else:
         return JsonResponse(data={"message": "Método HTTP no permitido."}, status=405)
